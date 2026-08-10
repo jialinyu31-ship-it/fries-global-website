@@ -1,0 +1,23 @@
+node_modules/
+.next/
+out/
+.playwright-cli/
+.private/
+logs/
+output/
+tmp/
+tools/cloudflared.exe
+*.pem
+*.key
+*.p12
+*.pfx
+.env
+.env.local
+.env.*.local
+*.log
+.DS_Store
+ADMIN_ACCESS.txt
+PUBLIC_PREVIEW_URL.txt
+
+# Keep public verification material, never the signing key.
+!brand-provenance/fries-global-public-key.pem
