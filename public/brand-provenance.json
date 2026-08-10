@@ -5,10 +5,10 @@
     "owner": "薯条出海 · FRIES GLOBAL",
     "copyright": "Copyright © 2026 Fries Global. All Rights Reserved.",
     "purpose": "Verifiable provenance for original Fries Global website and brand assets.",
-    "signedAt": "2026-08-10T08:10:50.023Z",
+    "signedAt": "2026-08-10T08:46:40.103Z",
     "publicKeyFingerprint": "2ed500c76661145a8b6132d299ae89d1575a0ba747f1623bf203c35f7b3d9bf9",
     "assets": {
-      "app/globals.css": "08a083e7fca0ae5c9fe94c3d3f848eee391f2a4208eabe23a077483da993758c",
+      "app/globals.css": "7c6d1bc54e34af148f432ae16404d5ce848c80651114ac368a5e88951af83972",
       "components/brand-mark.tsx": "59eb8441697864b3927f08d1eea1535df9455749bfaf39f6f92c5fec953149a2",
       "lib/site-content.ts": "431cc1f31f61b3303c9c9900e8914b682c2d10fdcbe457a61a97dce1e678bfb3",
       "public/brand-symbol.png": "5d2489a9946622fa4b62317c186fa371bcf8b353ba4391e19cbdd3c0c69ab7ff",
@@ -21,5 +21,5 @@
     }
   },
   "algorithm": "Ed25519",
-  "signature": "cwz89r38OzHbUu-yPIGlXhykkvump12B0cyUsq4RUXvpI-b8cmTTO19ThVv-5XuerVciHRFXvdq8qL2zluyPCA"
+  "signature": "c4oa6xbiEpwIKU24b9TAT_VzwEzCSx5Ncz08SFk3T4Wm-bIZ1zb0PGwre_gPVC2RzGcG1PfM3b9CBGmOJgKWAg"
 }
