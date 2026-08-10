@@ -4,9 +4,21 @@ $projectRoot = Split-Path -Parent $PSScriptRoot
 $startScript = Join-Path $PSScriptRoot "start-public-preview.ps1"
 $stopMarker = Join-Path $projectRoot "logs\preview-stopped.marker"
 $cloudflaredPath = Join-Path $projectRoot "tools\cloudflared.exe"
-$mutex = [Threading.Mutex]::new($false, "Local\FriesGlobalPreviewWatchdog")
+$mutex = [Threading.Mutex]::new($false, "Local\FriesGlobalPreviewWatchdogV2")
+$ownsMutex = $false
 
-if (-not $mutex.WaitOne(0, $false)) { exit 0 }
+try {
+  $ownsMutex = $mutex.WaitOne(0, $false)
+} catch [Threading.AbandonedMutexException] {
+  # A previous watchdog was stopped while holding the mutex. Ownership passes
+  # to this process, so recovery should continue instead of exiting.
+  $ownsMutex = $true
+}
+
+if (-not $ownsMutex) {
+  $mutex.Dispose()
+  exit 0
+}
 
 try {
   Remove-Item -LiteralPath $stopMarker -Force -ErrorAction SilentlyContinue
@@ -29,6 +41,6 @@ try {
     Start-Sleep -Seconds 30
   }
 } finally {
-  $mutex.ReleaseMutex()
+  if ($ownsMutex) { $mutex.ReleaseMutex() }
   $mutex.Dispose()
 }
