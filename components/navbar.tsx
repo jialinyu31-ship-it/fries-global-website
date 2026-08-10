@@ -25,6 +25,12 @@ export function Navbar({ content }: { content: SiteContent }) {
 
   return (
     <header className={`navbar ${scrolled ? "is-scrolled" : ""} ${open ? "is-open" : ""}`}>
+      <div className="navbar__utility">
+        <div className="shell navbar__utility-inner">
+          <span>{content.hero.eyebrow}</span>
+          <a href="#contact">{content.cta.kicker}<ArrowUpRight size={13} /></a>
+        </div>
+      </div>
       <div className="navbar__inner shell">
         <a className="navbar__brand" href="#top" onClick={() => setOpen(false)}><BrandMark /></a>
         <nav className="navbar__nav" aria-label="Main navigation">

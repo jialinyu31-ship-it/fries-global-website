@@ -17,6 +17,17 @@ export function Hero({ content }: { content: SiteContent }) {
             <a className="button button--text button--text-light" href="#products">{content.hero.secondary}<ArrowDownRight size={17} /></a>
           </div>
         </div>
+        <aside className="hero-brief" aria-label={content.cta.kicker}>
+          <div className="hero-brief__top"><span>01</span><small>{content.cta.kicker}</small></div>
+          <h2>{content.hero.primary}</h2>
+          <ol>
+            <li><span>01</span>{content.categories.items[0]}</li>
+            <li><span>02</span>{content.services.items[2].title}</li>
+            <li><span>03</span>{content.process.items[4].title}</li>
+          </ol>
+          <a href="#contact">{content.cta.primary}<ArrowRight size={17} /></a>
+          <p>{content.hero.proofs[0]} · {content.hero.proofs[2]}</p>
+        </aside>
       </div>
       <div className="hero__proofs shell">
         {content.hero.proofs.map((proof) => <span key={proof}><Check size={15} />{proof}</span>)}

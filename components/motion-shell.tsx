@@ -22,13 +22,14 @@ export function MotionShell({ children }: { children: ReactNode }) {
         .from(".hero h1 > span", { autoAlpha: 0, yPercent: 35, stagger: 0.12, duration: 0.8 }, "-=0.2")
         .from(".hero__copy > p", { autoAlpha: 0, y: 22, duration: 0.6 }, "-=0.4")
         .from(".hero__actions", { autoAlpha: 0, y: 18, duration: 0.5 }, "-=0.34")
+        .from(".hero-brief", { autoAlpha: 0, x: 28, duration: 0.68 }, "-=0.42")
         .from(".hero__proofs span", { autoAlpha: 0, y: 10, stagger: 0.06, duration: 0.35 }, "-=0.22");
 
       gsap.utils.toArray<HTMLElement>(".reveal").forEach((element) => {
         gsap.from(element, { autoAlpha: 0, y: 34, duration: 0.72, ease: "power3.out", scrollTrigger: { trigger: element, start: "top 88%", once: true } });
       });
 
-      ScrollTrigger.batch(".category-card, .service-card", {
+      ScrollTrigger.batch(".category-card, .service-tab", {
         start: "top 90%", once: true, interval: 0.08, batchMax: 5,
         onEnter: (batch) => gsap.from(batch, { autoAlpha: 0, y: 32, scale: 0.985, stagger: 0.07, duration: 0.65, ease: "power3.out" }),
       });
